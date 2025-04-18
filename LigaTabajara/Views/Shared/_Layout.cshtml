@@ -1,37 +1,51 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
+    <title>@ViewBag.Title - Liga Tabajara</title>
+
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-        <div class="container">
-            @Html.ActionLink("Nome do aplicativo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Alternar a navegação" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Página Inicial", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Sobre", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contato", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                </ul>
+<body class="bg-black text-white min-h-screen flex flex-col">
+
+    <!-- NAVBAR -->
+    <nav class="bg-gray-900 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+
+                <!-- Logo + Nome -->
+                <div class="flex items-center space-x-2">
+                    <span class="text-2xl">⚽</span>
+                    <a href="@Url.Action("Index", "Home")" class="text-pink-400 text-xl font-bold hover:text-pink-300 transition duration-300 no-underline">
+                        Liga Tabajara
+                    </a>
+                </div>
+
+                <!-- Links -->
+                <div class="hidden md:flex space-x-6">
+                    @Html.ActionLink("Página Inicial", "Index", "Home", null, new { @class = "text-gray-300 hover:text-pink-400 transition duration-200 no-underline" })
+                    @Html.ActionLink("Sobre", "About", "Home", null, new { @class = "text-gray-300 hover:text-pink-400 transition duration-200 no-underline" })
+                    @Html.ActionLink("Contato", "Contact", "Home", null, new { @class = "text-gray-300 hover:text-pink-400 transition duration-200 no-underline" })
+                </div>
             </div>
         </div>
     </nav>
-    <div class="container body-content">
+
+    <!-- CONTEÚDO -->
+    <main class="flex-grow px-4 py-8">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Meu Aplicativo ASP.NET</p>
-        </footer>
-    </div>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="bg-gray-900 text-gray-400 text-center py-4 border-t border-gray-800">
+        <p>&copy; @DateTime.Now.Year - Desenvolvido por <span class="text-pink-400 font-semibold">Nicole Araujo Muniz</span></p>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

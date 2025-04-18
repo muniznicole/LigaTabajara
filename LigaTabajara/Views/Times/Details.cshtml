@@ -1,0 +1,66 @@
+﻿@model LigaTabajara.Models.Time
+
+@{
+    ViewBag.Title = "Detalhes do Time";
+}
+
+<div class="min-h-screen bg-black text-white flex items-center justify-center px-4">
+    <div class="w-full max-w-3xl bg-gray-900 border border-gray-800 rounded-xl shadow-lg p-8 space-y-6">
+
+        <h1 class="text-3xl font-bold text-pink-400 text-center mb-4">Detalhes do Time</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-300">
+            <div>
+                <span class="text-pink-300 font-semibold">Nome:</span>
+                <p>@Model.Nome</p>
+            </div>
+            <div>
+                <span class="text-pink-300 font-semibold">Cidade:</span>
+                <p>@Model.Cidade</p>
+            </div>
+            <div>
+                <span class="text-pink-300 font-semibold">Estado:</span>
+                <p>@Model.Estado</p>
+            </div>
+            <div>
+                <span class="text-pink-300 font-semibold">Ano de Fundação:</span>
+                <p>@Model.AnoFundacao</p>
+            </div>
+            <div>
+                <span class="text-pink-300 font-semibold">Estádio:</span>
+                <p>@Model.Estadio</p>
+            </div>
+            <div>
+                <span class="text-pink-300 font-semibold">Capacidade do Estádio:</span>
+                <p>@Model.CapacidadeEstadio</p>
+            </div>
+            <div>
+                <span class="text-pink-300 font-semibold">Cor Primária do Uniforme:</span>
+                <p>@Model.CorUniformePrimaria</p>
+            </div>
+            <div>
+                <span class="text-pink-300 font-semibold">Cor Secundária do Uniforme:</span>
+                <p>@Model.CorUniformeSecundaria</p>
+            </div>
+            <div>
+                <span class="text-pink-300 font-semibold">Status:</span>
+                <p>
+                    @if (Model.Status)
+                    {
+                        <span class="text-green-400 font-semibold">Ativo</span>
+                    }
+                    else
+                    {
+                        <span class="text-red-400 font-semibold">Inativo</span>
+                    }
+                </p>
+            </div>
+        </div>
+
+        <div class="mt-8 flex justify-between">
+            <a href="@Url.Action("Index")" class="text-gray-300 hover:text-pink-400 no-underline">← Voltar</a>
+            <a href="@Url.Action("Edit", new { id = Model.TimeId })" class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-6 rounded transition duration-300 no-underline">Editar</a>
+        </div>
+
+    </div>
+</div>

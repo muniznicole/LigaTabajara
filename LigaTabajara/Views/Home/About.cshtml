@@ -1,9 +1,47 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "Sobre";
 }
-<main aria-labelledby="title">
-    <h2 id="title">@ViewBag.Title.</h2>
-    <h3>@ViewBag.Message</h3>
 
-    <p>Use this area to provide additional information.</p>
-</main>
+<div class="min-h-screen bg-black text-white flex items-center justify-center px-4">
+    <div class="max-w-4xl bg-gray-900 border border-gray-800 rounded-xl shadow-lg p-8 space-y-6">
+        <h1 class="text-3xl font-bold text-pink-400 text-center">Liga Tabajara de Futebol</h1>
+
+        <p class="text-gray-300">
+            Projeto desenvolvido por <span class="text-pink-400 font-semibold">Nicole Araujo Muniz</span> para a disciplina <strong>Tópicos III</strong> do curso de <strong>Sistemas de Informação</strong> na Universidade Estadual do Tocantins (Unitins).
+        </p>
+
+        <p class="text-gray-300">
+            O sistema tem como objetivo gerenciar a fictícia Liga Tabajara de Futebol, permitindo o controle de:
+        </p>
+
+        <ul class="list-disc list-inside text-gray-400">
+            <li>Times</li>
+            <li>Jogadores</li>
+            <li>Comissão técnica</li>
+            <li>Partidas</li>
+            <li>Estatísticas e classificação do campeonato</li>
+        </ul>
+
+        <p class="text-gray-300">
+            A proposta é implementar uma aplicação web utilizando o padrão MVC com .NET Framework, integrando banco de dados SQL Server e controle de versionamento com Entity Framework (Code First + Migrations).
+        </p>
+
+        <h2 class="text-2xl font-semibold text-pink-300 mt-4">Tecnologias utilizadas</h2>
+        <ul class="list-disc list-inside text-gray-400">
+            <li>ASP.NET MVC (.NET Framework 4.7.2)</li>
+            <li>C# com Entity Framework 6.5.1</li>
+            <li>SQL Server Express</li>
+            <li>Visual Studio 2022</li>
+            <li>Git & GitHub</li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold text-pink-300 mt-4">Estrutura esperada</h2>
+        <p class="text-gray-300">
+            A aplicação conterá páginas de cadastro, visualização e controle das entidades da liga, além de páginas específicas para resultados, classificação e artilharia do campeonato. Ao fim da competição, o sistema também exibirá o campeão da temporada.
+        </p>
+
+        <p class="text-sm text-center text-gray-500 pt-6">
+            Desenvolvido com fins acadêmicos por Nicole Araujo Muniz.
+        </p>
+    </div>
+</div>

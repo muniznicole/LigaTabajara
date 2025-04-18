@@ -1,0 +1,62 @@
+﻿<h2 class="text-3xl font-bold text-pink-400 text-center mb-8">Lista de Times Cadastrados</h2>
+
+<div class="overflow-x-auto">
+    <table class="min-w-full bg-gray-900 border border-gray-800 rounded-lg shadow">
+        <thead>
+            <tr class="bg-gray-800 text-pink-300 text-center">
+                <th class="py-3 px-4">Nome</th>
+                <th class="py-3 px-4">Cidade</th>
+                <th class="py-3 px-4">Estado</th>
+                <th class="py-3 px-4">Ano<br />Fundação</th>
+                <th class="py-3 px-4">Estádio</th>
+                <th class="py-3 px-4">Capacidade</th>
+                <th class="py-3 px-4">Uniforme 1</th>
+                <th class="py-3 px-4">Uniforme 2</th>
+                <th class="py-3 px-4">Status</th>
+                <th class="py-3 px-4">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="border-t border-gray-700 text-center hover:bg-gray-800">
+                    <td class="py-2 px-4">@item.Nome</td>
+                    <td class="py-2 px-4">@item.Cidade</td>
+                    <td class="py-2 px-4">@item.Estado</td>
+                    <td class="py-2 px-4">@item.AnoFundacao</td>
+                    <td class="py-2 px-4">@item.Estadio</td>
+                    <td class="py-2 px-4">@item.CapacidadeEstadio</td>
+                    <td class="py-2 px-4">@item.CorUniformePrimaria</td>
+                    <td class="py-2 px-4">@item.CorUniformeSecundaria</td>
+                    <td class="py-2 px-4">
+                        @if (item.Status)
+                        {
+                            <span class="text-green-400 font-semibold">Ativo</span>
+                        }
+                        else
+                        {
+                            <span class="text-red-400 font-semibold">Inativo</span>
+                        }
+                    </td>
+                    <td class="py-2 px-4 flex justify-center gap-3">
+                        @Html.ActionLink("✏️", "Edit", new { id = item.TimeId }, new
+                        {
+                            @class = "no-underline text-yellow-300 hover:text-yellow-400 text-lg",
+                            title = "Editar"
+                        })
+                        @Html.ActionLink("🕵️", "Details", new { id = item.TimeId }, new
+                        {
+                            @class = "no-underline text-blue-300 hover:text-blue-400 text-lg",
+                            title = "Detalhes"
+                        })
+                        @Html.ActionLink("❌", "Delete", new { id = item.TimeId }, new
+                        {
+                            @class = "no-underline text-red-400 hover:text-red-500 text-lg",
+                            title = "Excluir"
+                        })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

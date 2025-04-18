@@ -1,0 +1,30 @@
+﻿@model LigaTabajara.Models.Time
+
+@{
+    ViewBag.Title = "Excluir Time";
+}
+
+<div class="min-h-screen bg-black text-white flex items-center justify-center px-4">
+    <div class="w-full max-w-xl bg-gray-900 border border-gray-800 rounded-xl shadow-lg p-8 space-y-6">
+
+        <h1 class="text-3xl font-bold text-pink-400 text-center mb-4">Confirmar Exclusão</h1>
+
+        <p class="text-gray-300 text-center">Tem certeza que deseja excluir o time <strong class="text-white">@Model.Nome</strong>?</p>
+
+        <div class="grid grid-cols-2 gap-4 text-gray-400">
+            <div><span class="text-pink-300 font-semibold">Cidade:</span> @Model.Cidade</div>
+            <div><span class="text-pink-300 font-semibold">Estado:</span> @Model.Estado</div>
+            <div><span class="text-pink-300 font-semibold">Estádio:</span> @Model.Estadio</div>
+            <div><span class="text-pink-300 font-semibold">Capacidade:</span> @Model.CapacidadeEstadio</div>
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="flex justify-between mt-6">
+                <a href="@Url.Action("Index")" class="text-gray-300 hover:text-pink-400 no-underline">← Cancelar</a>
+                <input type="submit" value="Excluir" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded transition duration-300" />
+            </div>
+        }
+    </div>
+</div>

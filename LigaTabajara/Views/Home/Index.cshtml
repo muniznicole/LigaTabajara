@@ -1,33 +1,23 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Início";
 }
 
-<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
-    </section>
+<div class="min-h-screen bg-black text-white flex items-center justify-center px-4">
+    <div class="w-full max-w-3xl bg-gray-900 bg-opacity-80 backdrop-blur-sm border border-gray-800 rounded-xl shadow-2xl p-10">
+        <h1 class="text-4xl font-bold text-center text-pink-400 mb-6">Liga Tabajara de Futebol</h1>
 
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </section>
+        <p class="text-lg text-center text-gray-300 leading-relaxed mb-8">
+            Bem-vindo ao sistema oficial da Liga Tabajara. Aqui você pode cadastrar times, jogadores, acompanhar estatísticas
+            e conferir a tabela completa do campeonato!
+        </p>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="/Times" class="no-underline bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-6 rounded-lg transition duration-300 text-center">
+                Ver Times
+            </a>
+            <a href="/Times/Create" class="no-underline bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded-lg transition duration-300 text-center">
+                Cadastrar Time
+            </a>
+        </div>
     </div>
-</main>
+</div>

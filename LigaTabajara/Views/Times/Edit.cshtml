@@ -1,0 +1,89 @@
+﻿@model LigaTabajara.Models.Time
+
+@{
+    ViewBag.Title = "Editar Time";
+}
+
+<div class="min-h-screen bg-black text-white flex items-center justify-center px-4">
+    <div class="w-full max-w-3xl bg-gray-900 border border-gray-800 rounded-xl shadow-xl p-8 space-y-6">
+
+        <h1 class="text-3xl font-bold text-pink-400 text-center mb-4">Editar Time</h1>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(model => model.TimeId)
+            @Html.ValidationSummary(true, "", new { @class = "text-red-400 mb-4" })
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                @* Campos idênticos ao Create *@
+                <div>
+                    @Html.LabelFor(m => m.Nome, new { @class = "block text-sm font-medium text-pink-300" })
+                    @Html.TextBoxFor(m => m.Nome, new { @class = "mt-1 w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded text-white" })
+                    @Html.ValidationMessageFor(m => m.Nome, "", new { @class = "text-red-400 text-sm" })
+                </div>
+
+                <div>
+                    @Html.LabelFor(m => m.Cidade, new { @class = "block text-sm font-medium text-pink-300" })
+                    @Html.TextBoxFor(m => m.Cidade, new { @class = "mt-1 w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded text-white" })
+                    @Html.ValidationMessageFor(m => m.Cidade, "", new { @class = "text-red-400 text-sm" })
+                </div>
+
+                <div>
+                    @Html.LabelFor(m => m.Estado, new { @class = "block text-sm font-medium text-pink-300" })
+                    @Html.TextBoxFor(m => m.Estado, new { @class = "mt-1 w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded text-white" })
+                    @Html.ValidationMessageFor(m => m.Estado, "", new { @class = "text-red-400 text-sm" })
+                </div>
+
+                <div>
+                    @Html.LabelFor(m => m.AnoFundacao, new { @class = "block text-sm font-medium text-pink-300" })
+                    @Html.TextBoxFor(m => m.AnoFundacao, new { @class = "mt-1 w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded text-white" })
+                    @Html.ValidationMessageFor(m => m.AnoFundacao, "", new { @class = "text-red-400 text-sm" })
+                </div>
+
+                <div>
+                    @Html.LabelFor(m => m.Estadio, new { @class = "block text-sm font-medium text-pink-300" })
+                    @Html.TextBoxFor(m => m.Estadio, new { @class = "mt-1 w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded text-white" })
+                    @Html.ValidationMessageFor(m => m.Estadio, "", new { @class = "text-red-400 text-sm" })
+                </div>
+
+                <div>
+                    @Html.LabelFor(m => m.CapacidadeEstadio, new { @class = "block text-sm font-medium text-pink-300" })
+                    @Html.TextBoxFor(m => m.CapacidadeEstadio, new { @class = "mt-1 w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded text-white" })
+                    @Html.ValidationMessageFor(m => m.CapacidadeEstadio, "", new { @class = "text-red-400 text-sm" })
+                </div>
+
+                <div>
+                    @Html.LabelFor(m => m.CorUniformePrimaria, new { @class = "block text-sm font-medium text-pink-300" })
+                    @Html.TextBoxFor(m => m.CorUniformePrimaria, new { @class = "mt-1 w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded text-white" })
+                    @Html.ValidationMessageFor(m => m.CorUniformePrimaria, "", new { @class = "text-red-400 text-sm" })
+                </div>
+
+                <div>
+                    @Html.LabelFor(m => m.CorUniformeSecundaria, new { @class = "block text-sm font-medium text-pink-300" })
+                    @Html.TextBoxFor(m => m.CorUniformeSecundaria, new { @class = "mt-1 w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded text-white" })
+                    @Html.ValidationMessageFor(m => m.CorUniformeSecundaria, "", new { @class = "text-red-400 text-sm" })
+                </div>
+
+                <div>
+                    @Html.LabelFor(m => m.Status, new { @class = "block text-sm font-medium text-pink-300" })
+                    <div class="flex items-center gap-2 mt-2">
+                        @Html.CheckBoxFor(m => m.Status, new { @class = "form-checkbox h-5 w-5 text-pink-500" })
+                        <span class="text-gray-300 text-sm">Está apto para participar da liga?</span>
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Status, "", new { @class = "text-red-400 text-sm" })
+                </div>
+            </div>
+
+            <div class="mt-8 flex justify-between">
+                <a href="@Url.Action("Index")" class="text-gray-300 hover:text-pink-400 no-underline">← Voltar</a>
+                <input type="submit" value="Salvar Alterações" class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-6 rounded transition duration-300" />
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
