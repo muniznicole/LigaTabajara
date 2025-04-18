@@ -1,0 +1,68 @@
+﻿@model IEnumerable<LigaTabajara.Models.Jogador>
+
+@{
+    ViewBag.Title = "Jogadores";
+}
+
+<h2 class="text-3xl font-bold text-pink-400 text-center mb-8">Lista de Jogadores Cadastrados</h2>
+
+<div class="flex justify-end mb-4">
+    @Html.ActionLink("Cadastrar Novo Jogador", "Create", null, new
+    {
+        @class = "no-underline bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300"
+    })
+</div>
+
+<div class="overflow-x-auto">
+    <table class="min-w-full bg-gray-900 border border-gray-800 rounded-lg shadow text-white">
+        <thead>
+            <tr class="bg-gray-800 text-pink-300 text-center text-sm uppercase">
+                <th class="py-3 px-4">Nome</th>
+                <th class="py-3 px-4">Nascimento</th>
+                <th class="py-3 px-4">Nacionalidade</th>
+                <th class="py-3 px-4">Posição</th>
+                <th class="py-3 px-4">Nº</th>
+                <th class="py-3 px-4">Altura</th>
+                <th class="py-3 px-4">Peso</th>
+                <th class="py-3 px-4">Pé Preferido</th>
+                <th class="py-3 px-4">Time</th>
+                <th class="py-3 px-4">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var jogador in Model)
+            {
+                <tr class="border-t border-gray-700 text-center hover:bg-gray-800 text-sm">
+                    <td class="py-2 px-4">@jogador.Nome</td>
+                    <td class="py-2 px-4">@jogador.DataNascimento.ToString("dd/MM/yyyy")</td>
+                    <td class="py-2 px-4">@jogador.Nacionalidade</td>
+                    <td class="py-2 px-4">@jogador.Posicao</td>
+                    <td class="py-2 px-4">@jogador.NumeroCamisa</td>
+                    <td class="py-2 px-4">@string.Format("{0:F2} m", jogador.Altura)</td>
+                    <td class="py-2 px-4">@string.Format("{0:F1} kg", jogador.Peso)</td>
+                    <td class="py-2 px-4">@jogador.PePreferido</td>
+                    <td class="py-2 px-4">
+                        @(jogador.Time != null ? jogador.Time.Nome : "Sem time")
+                    </td>
+                    <td class="py-2 px-4 flex justify-center gap-3">
+                        @Html.ActionLink("✏️", "Edit", new { id = jogador.JogadorId }, new
+                        {
+                            @class = "no-underline text-yellow-300 hover:text-yellow-400 text-lg",
+                            title = "Editar"
+                        })
+                        @Html.ActionLink("🕵️", "Details", new { id = jogador.JogadorId }, new
+                        {
+                            @class = "no-underline text-blue-300 hover:text-blue-400 text-lg",
+                            title = "Detalhes"
+                        })
+                        @Html.ActionLink("❌", "Delete", new { id = jogador.JogadorId }, new
+                        {
+                            @class = "no-underline text-red-400 hover:text-red-500 text-lg",
+                            title = "Excluir"
+                        })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

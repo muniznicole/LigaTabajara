@@ -128,6 +128,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JogadorsController.cs" />
     <Compile Include="Controllers\TimesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -135,6 +136,14 @@
     <Compile Include="Migrations\202504111432237_Inicial.cs" />
     <Compile Include="Migrations\202504111432237_Inicial.Designer.cs">
       <DependentUpon>202504111432237_Inicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202504181657141_CRUDTime.cs" />
+    <Compile Include="Migrations\202504181657141_CRUDTime.Designer.cs">
+      <DependentUpon>202504181657141_CRUDTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202504181701402_CRUDJogador.cs" />
+    <Compile Include="Migrations\202504181701402_CRUDJogador.Designer.cs">
+      <DependentUpon>202504181701402_CRUDJogador.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ComissaoTecnica.cs" />
@@ -199,6 +208,11 @@
     <Content Include="Views\Times\Details.cshtml" />
     <Content Include="Views\Times\Edit.cshtml" />
     <Content Include="Views\Times\Index.cshtml" />
+    <Content Include="Views\Jogadors\Create.cshtml" />
+    <Content Include="Views\Jogadors\Delete.cshtml" />
+    <Content Include="Views\Jogadors\Details.cshtml" />
+    <Content Include="Views\Jogadors\Edit.cshtml" />
+    <Content Include="Views\Jogadors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -233,6 +247,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202504111432237_Inicial.resx">
       <DependentUpon>202504111432237_Inicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202504181657141_CRUDTime.resx">
+      <DependentUpon>202504181657141_CRUDTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202504181701402_CRUDJogador.resx">
+      <DependentUpon>202504181701402_CRUDJogador.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

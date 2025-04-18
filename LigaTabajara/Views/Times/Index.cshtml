@@ -1,5 +1,12 @@
 ﻿<h2 class="text-3xl font-bold text-pink-400 text-center mb-8">Lista de Times Cadastrados</h2>
 
+<div class="flex justify-end mb-4">
+    @Html.ActionLink("Cadastrar Novo Time", "Create", null, new
+{
+    @class = "no-underline bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300"
+})
+</div>
+
 <div class="overflow-x-auto">
     <table class="min-w-full bg-gray-900 border border-gray-800 rounded-lg shadow">
         <thead>

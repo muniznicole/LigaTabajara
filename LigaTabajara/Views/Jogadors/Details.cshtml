@@ -1,0 +1,52 @@
+﻿@model LigaTabajara.Models.Jogador
+
+@{
+    ViewBag.Title = "Detalhes do Jogador";
+}
+
+<h2 class="text-3xl font-bold text-pink-400 text-center mb-8">Detalhes do Jogador</h2>
+
+<div class="max-w-3xl mx-auto bg-gray-900 text-white p-8 rounded-lg shadow-md border border-gray-700 space-y-4">
+    <dl class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+            <dt class="text-pink-300 font-semibold">Nome</dt>
+            <dd>@Model.Nome</dd>
+        </div>
+        <div>
+            <dt class="text-pink-300 font-semibold">Data de Nascimento</dt>
+            <dd>@Model.DataNascimento.ToString("dd/MM/yyyy")</dd>
+        </div>
+        <div>
+            <dt class="text-pink-300 font-semibold">Nacionalidade</dt>
+            <dd>@Model.Nacionalidade</dd>
+        </div>
+        <div>
+            <dt class="text-pink-300 font-semibold">Posição</dt>
+            <dd>@Model.Posicao</dd>
+        </div>
+        <div>
+            <dt class="text-pink-300 font-semibold">Número da Camisa</dt>
+            <dd>@Model.NumeroCamisa</dd>
+        </div>
+        <div>
+            <dt class="text-pink-300 font-semibold">Altura</dt>
+            <dd>@Model.Altura.ToString("0.00") m</dd>
+        </div>
+        <div>
+            <dt class="text-pink-300 font-semibold">Peso</dt>
+            <dd>@Model.Peso.ToString("0.0") kg</dd>
+        </div>
+        <div>
+            <dt class="text-pink-300 font-semibold">Pé Preferido</dt>
+            <dd>@Model.PePreferido</dd>
+        </div>
+        <div class="md:col-span-2">
+            <dt class="text-pink-300 font-semibold">Time</dt>
+            <dd>@(Model.Time != null ? Model.Time.Nome : "Sem time")</dd>
+        </div>
+    </dl>
+
+    <div class="mt-6 text-center">
+        @Html.ActionLink("Voltar para a Lista", "Index", null, new { @class = "text-pink-400 hover:underline" })
+    </div>
+</div>

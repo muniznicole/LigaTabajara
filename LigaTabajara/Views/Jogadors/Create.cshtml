@@ -1,0 +1,85 @@
+﻿@model LigaTabajara.Models.Jogador
+
+@{
+    ViewBag.Title = "Cadastrar Jogador";
+}
+
+<div class="min-h-screen bg-black text-white flex items-center justify-center px-4">
+    <div class="w-full max-w-3xl bg-gray-900 border border-gray-800 rounded-xl shadow-xl p-8 space-y-6">
+
+        <h1 class="text-3xl font-bold text-pink-400 text-center mb-4">Cadastrar Novo Jogador</h1>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.ValidationSummary(true, "", new { @class = "text-red-400 mb-4" })
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    @Html.LabelFor(m => m.Nome, "Nome", htmlAttributes: new { @class = "block text-sm font-medium text-pink-300" })
+                    @Html.TextBoxFor(m => m.Nome, new { @class = "mt-1 w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded text-white" })
+                    @Html.ValidationMessageFor(m => m.Nome, "", new { @class = "text-red-400 text-sm" })
+                </div>
+
+                <div>
+                    @Html.LabelFor(m => m.DataNascimento, "Data de Nascimento", htmlAttributes: new { @class = "block text-sm font-medium text-pink-300" })
+                    @Html.TextBoxFor(m => m.DataNascimento, "{0:yyyy-MM-dd}", new { type = "date", @class = "mt-1 w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded text-white" })
+                    @Html.ValidationMessageFor(m => m.DataNascimento, "", new { @class = "text-red-400 text-sm" })
+                </div>
+
+                <div>
+                    @Html.LabelFor(m => m.Nacionalidade, "Nacionalidade", htmlAttributes: new { @class = "block text-sm font-medium text-pink-300" })
+                    @Html.TextBoxFor(m => m.Nacionalidade, new { @class = "mt-1 w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded text-white" })
+                    @Html.ValidationMessageFor(m => m.Nacionalidade, "", new { @class = "text-red-400 text-sm" })
+                </div>
+
+                <div>
+                    @Html.LabelFor(m => m.Posicao, "Posição", htmlAttributes: new { @class = "block text-sm font-medium text-pink-300" })
+                    @Html.EnumDropDownListFor(m => m.Posicao, new { @class = "mt-1 w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded text-white" })
+                    @Html.ValidationMessageFor(m => m.Posicao, "", new { @class = "text-red-400 text-sm" })
+                </div>
+
+                <div>
+                    @Html.LabelFor(m => m.NumeroCamisa, "Número da Camisa", htmlAttributes: new { @class = "block text-sm font-medium text-pink-300" })
+                    @Html.TextBoxFor(m => m.NumeroCamisa, new { type = "number", @class = "mt-1 w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded text-white" })
+                    @Html.ValidationMessageFor(m => m.NumeroCamisa, "", new { @class = "text-red-400 text-sm" })
+                </div>
+
+                <div>
+                    @Html.LabelFor(m => m.Altura, "Altura", htmlAttributes: new { @class = "block text-sm font-medium text-pink-300" })
+                    @Html.TextBoxFor(m => m.Altura, new { type = "number", step = "0.01", @class = "mt-1 w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded text-white" })
+                    @Html.ValidationMessageFor(m => m.Altura, "", new { @class = "text-red-400 text-sm" })
+                </div>
+
+                <div>
+                    @Html.LabelFor(m => m.Peso, "Peso", htmlAttributes: new { @class = "block text-sm font-medium text-pink-300" })
+                    @Html.TextBoxFor(m => m.Peso, new { type = "number", step = "0.1", @class = "mt-1 w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded text-white" })
+                    @Html.ValidationMessageFor(m => m.Peso, "", new { @class = "text-red-400 text-sm" })
+                </div>
+
+                <div>
+                    @Html.LabelFor(m => m.PePreferido, "Pé Preferido", htmlAttributes: new { @class = "block text-sm font-medium text-pink-300" })
+                    @Html.EnumDropDownListFor(m => m.PePreferido, new { @class = "mt-1 w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded text-white" })
+                    @Html.ValidationMessageFor(m => m.PePreferido, "", new { @class = "text-red-400 text-sm" })
+                </div>
+
+                <div class="md:col-span-2">
+                    @Html.LabelFor(m => m.TimeId, "Time", htmlAttributes: new { @class = "block text-sm font-medium text-pink-300" })
+                    @Html.DropDownList("TimeId", null, "-- Selecione um Time --", new { @class = "mt-1 w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded text-white" })
+                    @Html.ValidationMessageFor(m => m.TimeId, "", new { @class = "text-red-400 text-sm" })
+                </div>
+            </div>
+
+            <!-- Botões -->
+            <div class="mt-8 flex justify-between">
+                <a href="@Url.Action("Index")" class="text-gray-300 hover:text-pink-400 no-underline">← Voltar</a>
+                <input type="submit" value="Cadastrar" class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-6 rounded transition duration-300" />
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

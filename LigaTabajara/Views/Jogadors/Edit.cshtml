@@ -1,0 +1,85 @@
+﻿@model LigaTabajara.Models.Jogador
+
+@{
+    ViewBag.Title = "Editar Jogador";
+}
+
+<h2 class="text-3xl font-bold text-pink-400 text-center mb-8">Editar Jogador</h2>
+
+<div class="max-w-4xl mx-auto bg-gray-900 text-white p-8 rounded-lg shadow-md border border-gray-700">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.JogadorId)
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                @Html.LabelFor(model => model.Nome, new { @class = "block text-sm font-medium text-gray-300" })
+                @Html.TextBoxFor(model => model.Nome, new { @class = "mt-1 block w-full bg-gray-800 text-white rounded-md border-gray-700 focus:ring-pink-500 focus:border-pink-500" })
+                @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-red-400 text-sm" })
+            </div>
+
+            <div>
+                @Html.LabelFor(model => model.DataNascimento, new { @class = "block text-sm font-medium text-gray-300" })
+                @Html.TextBoxFor(model => model.DataNascimento, "{0:yyyy-MM-dd}", new { type = "date", @class = "mt-1 block w-full bg-gray-800 text-white rounded-md border-gray-700 focus:ring-pink-500 focus:border-pink-500" })
+                @Html.ValidationMessageFor(model => model.DataNascimento, "", new { @class = "text-red-400 text-sm" })
+            </div>
+
+            <div>
+                @Html.LabelFor(model => model.Nacionalidade, new { @class = "block text-sm font-medium text-gray-300" })
+                @Html.TextBoxFor(model => model.Nacionalidade, new { @class = "mt-1 block w-full bg-gray-800 text-white rounded-md border-gray-700 focus:ring-pink-500 focus:border-pink-500" })
+                @Html.ValidationMessageFor(model => model.Nacionalidade, "", new { @class = "text-red-400 text-sm" })
+            </div>
+
+            <div>
+                @Html.LabelFor(model => model.Posicao, new { @class = "block text-sm font-medium text-gray-300" })
+                @Html.EnumDropDownListFor(model => model.Posicao, new { @class = "mt-1 block w-full bg-gray-800 text-white rounded-md border-gray-700 focus:ring-pink-500 focus:border-pink-500" })
+                @Html.ValidationMessageFor(model => model.Posicao, "", new { @class = "text-red-400 text-sm" })
+            </div>
+
+            <div>
+                @Html.LabelFor(model => model.NumeroCamisa, new { @class = "block text-sm font-medium text-gray-300" })
+                @Html.TextBoxFor(model => model.NumeroCamisa, new { type = "number", @class = "mt-1 block w-full bg-gray-800 text-white rounded-md border-gray-700 focus:ring-pink-500 focus:border-pink-500" })
+                @Html.ValidationMessageFor(model => model.NumeroCamisa, "", new { @class = "text-red-400 text-sm" })
+            </div>
+
+            <div>
+                @Html.LabelFor(model => model.Altura, new { @class = "block text-sm font-medium text-gray-300" })
+                @Html.TextBox("Altura", Model.Altura.ToString("F2"), new { type = "number", step = "0.01", @class = "mt-1 block w-full bg-gray-800 text-white rounded-md border-gray-700 focus:ring-pink-500 focus:border-pink-500" })
+                @Html.ValidationMessage("Altura", "", new { @class = "text-red-400 text-sm" })
+            </div>
+
+            <div>
+                @Html.LabelFor(model => model.Peso, new { @class = "block text-sm font-medium text-gray-300" })
+                @Html.TextBox("Peso", Model.Peso.ToString("F1"), new { type = "number", step = "0.1", @class = "mt-1 block w-full bg-gray-800 text-white rounded-md border-gray-700 focus:ring-pink-500 focus:border-pink-500" })
+                @Html.ValidationMessage("Peso", "", new { @class = "text-red-400 text-sm" })
+            </div>
+
+            <div>
+                @Html.LabelFor(model => model.PePreferido, new { @class = "block text-sm font-medium text-gray-300" })
+                @Html.EnumDropDownListFor(model => model.PePreferido, new { @class = "mt-1 block w-full bg-gray-800 text-white rounded-md border-gray-700 focus:ring-pink-500 focus:border-pink-500" })
+                @Html.ValidationMessageFor(model => model.PePreferido, "", new { @class = "text-red-400 text-sm" })
+            </div>
+
+            <div class="md:col-span-2">
+                @Html.LabelFor(model => model.TimeId, "Time", new { @class = "block text-sm font-medium text-gray-300" })
+                @Html.DropDownList("TimeId", null, "-- Selecione um Time --", new { @class = "mt-1 block w-full bg-gray-800 text-white rounded-md border-gray-700 focus:ring-pink-500 focus:border-pink-500" })
+                @Html.ValidationMessageFor(model => model.TimeId, "", new { @class = "text-red-400 text-sm" })
+            </div>
+        </div>
+
+        <div class="mt-8 text-center">
+            <button type="submit" class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-6 rounded-full transition duration-300">
+                Salvar Alterações
+            </button>
+        </div>
+    }
+</div>
+
+<div class="text-center mt-4">
+    @Html.ActionLink("Voltar para a Lista", "Index", null, new { @class = "text-pink-400 hover:underline" })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

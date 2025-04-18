@@ -1,0 +1,43 @@
+﻿@model LigaTabajara.Models.Jogador
+
+@{
+    ViewBag.Title = "Excluir Jogador";
+}
+
+<h2 class="text-3xl font-bold text-pink-400 text-center mb-8">Excluir Jogador</h2>
+
+<div class="max-w-2xl mx-auto bg-gray-900 text-white p-8 rounded-lg shadow-lg border border-gray-700 space-y-6">
+    <p class="text-center text-lg text-red-400 font-semibold">Tem certeza que deseja excluir este jogador?</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+            <span class="text-pink-300 font-semibold block">Nome</span>
+            <span>@Model.Nome</span>
+        </div>
+        <div>
+            <span class="text-pink-300 font-semibold block">Time</span>
+            <span>@(Model.Time != null ? Model.Time.Nome : "Sem time")</span>
+        </div>
+        <div>
+            <span class="text-pink-300 font-semibold block">Posição</span>
+            <span>@Model.Posicao</span>
+        </div>
+        <div>
+            <span class="text-pink-300 font-semibold block">Número da Camisa</span>
+            <span>@Model.NumeroCamisa</span>
+        </div>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="flex justify-center gap-6 mt-6">
+            <input type="submit" value="Confirmar Exclusão" class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-md transition duration-300 font-semibold shadow" />
+
+            <a href="@Url.Action("Index")"
+               class="no-underline bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded-md transition duration-300 font-semibold shadow">
+                Cancelar
+            </a>
+        </div>
+    }
+</div>
