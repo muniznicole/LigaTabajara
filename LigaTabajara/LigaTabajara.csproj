@@ -127,6 +127,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ComissaoTecnicasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JogadorsController.cs" />
     <Compile Include="Controllers\TimesController.cs" />
@@ -213,6 +214,11 @@
     <Content Include="Views\Jogadors\Details.cshtml" />
     <Content Include="Views\Jogadors\Edit.cshtml" />
     <Content Include="Views\Jogadors\Index.cshtml" />
+    <Content Include="Views\ComissaoTecnicas\Create.cshtml" />
+    <Content Include="Views\ComissaoTecnicas\Delete.cshtml" />
+    <Content Include="Views\ComissaoTecnicas\Details.cshtml" />
+    <Content Include="Views\ComissaoTecnicas\Edit.cshtml" />
+    <Content Include="Views\ComissaoTecnicas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

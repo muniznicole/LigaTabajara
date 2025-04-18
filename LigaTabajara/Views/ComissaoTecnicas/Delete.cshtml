@@ -1,0 +1,41 @@
+﻿@model LigaTabajara.Models.ComissaoTecnica
+
+@{
+    ViewBag.Title = "Excluir Membro";
+}
+
+<div class="min-h-screen bg-black text-white flex items-center justify-center px-4">
+    <div class="w-full max-w-xl bg-gray-900 border border-gray-800 rounded-xl shadow-xl p-8 space-y-6">
+
+        <h1 class="text-3xl font-bold text-red-500 text-center mb-4">Confirmar Exclusão</h1>
+
+        <p class="text-center text-lg text-red-400 font-semibold">Deseja realmente excluir este membro da comissão técnica?</p>
+
+        <div class="space-y-4">
+            <div>
+                <span class="block text-pink-300 font-semibold">Nome:</span>
+                <span>@Model.Nome</span>
+            </div>
+            <div>
+                <span class="block text-pink-300 font-semibold">Cargo:</span>
+                <span>@Model.Cargo</span>
+            </div>
+            <div>
+                <span class="block text-pink-300 font-semibold">Time:</span>
+                <span>@(Model.Time != null ? Model.Time.Nome : "Sem time")</span>
+            </div>
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="flex justify-center gap-6 mt-6">
+                <input type="submit" value="Confirmar Exclusão" class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-md font-semibold shadow" />
+                <a href="@Url.Action("Index")"
+                   class="no-underline bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded-md font-semibold shadow">
+                    Cancelar
+                </a>
+            </div>
+        }
+    </div>
+</div>

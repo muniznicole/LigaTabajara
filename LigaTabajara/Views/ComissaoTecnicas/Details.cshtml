@@ -1,0 +1,43 @@
+﻿@model LigaTabajara.Models.ComissaoTecnica
+
+@{
+    ViewBag.Title = "Detalhes da Comissão Técnica";
+}
+
+<div class="min-h-screen bg-black text-white flex items-center justify-center px-4">
+    <div class="w-full max-w-xl bg-gray-900 border border-gray-800 rounded-xl shadow-xl p-8 space-y-6">
+
+        <h1 class="text-3xl font-bold text-pink-400 text-center mb-4">Detalhes do Membro</h1>
+
+        <div class="space-y-4">
+            <div>
+                <span class="block text-pink-300 font-semibold">Nome:</span>
+                <span>@Model.Nome</span>
+            </div>
+            <div>
+                <span class="block text-pink-300 font-semibold">Cargo:</span>
+                <span>@Model.Cargo</span>
+            </div>
+            <div>
+                <span class="block text-pink-300 font-semibold">Data de Nascimento:</span>
+                <span>@Model.DataNascimento.ToString("dd/MM/yyyy")</span>
+            </div>
+            <div>
+                <span class="block text-pink-300 font-semibold">Time:</span>
+                <span>@(Model.Time != null ? Model.Time.Nome : "Sem time")</span>
+            </div>
+        </div>
+
+        <div class="flex justify-between mt-8">
+            <a href="@Url.Action("Index")"
+               class="no-underline bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-md transition duration-300">
+                Voltar
+            </a>
+
+            <a href="@Url.Action("Edit", new { id = Model.ComissaoTecnicaId })"
+               class="no-underline bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-6 rounded-md transition duration-300">
+                Editar
+            </a>
+        </div>
+    </div>
+</div>

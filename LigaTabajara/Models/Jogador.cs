@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -23,17 +24,31 @@ namespace LigaTabajara.Models
 
     public enum PosicaoJogador
     {
+        [Display(Name = "Goleiro")]
         Goleiro,
+
+        [Display(Name = "Zagueiro")]
         Zagueiro,
+
+        [Display(Name = "Volante")]
         Volante,
+
+        [Display(Name = "Meia")]
         Meia,
+
+        [Display(Name = "Atacante")]
         Atacante
     }
 
     public enum PePreferido
     {
+        [Display(Name = "Pé Esquerdo")]
         Esquerdo,
+
+        [Display(Name = "Pé Direito")]
         Direito,
+
+        [Display(Name = "Ambidestro")]
         Ambidestro
     }
 }
