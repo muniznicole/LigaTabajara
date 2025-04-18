@@ -1,0 +1,56 @@
+﻿@model LigaTabajara.Models.Partida
+
+@{
+    ViewBag.Title = "Confirmar Exclusão";
+}
+
+<div class="min-h-screen bg-black text-white flex items-center justify-center px-4 py-10">
+    <div class="w-full max-w-3xl bg-gray-900 border border-gray-800 rounded-xl shadow-2xl p-8 space-y-6">
+
+        <h1 class="text-3xl font-bold text-pink-400 text-center mb-6">Excluir Partida</h1>
+
+        <p class="text-center text-red-400 font-semibold mb-4">Tem certeza que deseja excluir esta partida?</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-300 text-base">
+            <div>
+                <span class="font-semibold text-pink-300">Rodada:</span>
+                <p>@Model.Rodada</p>
+            </div>
+            <div>
+                <span class="font-semibold text-pink-300">Data e Hora:</span>
+                <p>@Model.DataHora.ToString("dd/MM/yyyy HH:mm")</p>
+            </div>
+            <div>
+                <span class="font-semibold text-pink-300">Time da Casa:</span>
+                <p>@Model.TimeCasa?.Nome ?? "—"</p>
+            </div>
+            <div>
+                <span class="font-semibold text-pink-300">Time Visitante:</span>
+                <p>@Model.TimeFora?.Nome ?? "—"</p>
+            </div>
+            <div>
+                <span class="font-semibold text-pink-300">Placar:</span>
+                <p>@Model.PlacarTimeCasa x @Model.PlacarTimeFora</p>
+            </div>
+            <div>
+                <span class="font-semibold text-pink-300">Estádio:</span>
+                <p>@Model.Estadio</p>
+            </div>
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="mt-8 flex justify-between">
+                <input type="submit" value="Confirmar Exclusão"
+                       class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-6 rounded transition duration-300" />
+
+                <a href="@Url.Action("Index")"
+                   class="text-gray-300 hover:text-pink-400 font-medium no-underline">
+                    Cancelar
+                </a>
+            </div>
+        }
+    </div>
+</div>

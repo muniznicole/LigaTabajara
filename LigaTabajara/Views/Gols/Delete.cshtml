@@ -1,0 +1,49 @@
+﻿@model LigaTabajara.Models.Gol
+
+@{
+    ViewBag.Title = "Excluir Gol";
+}
+
+<div class="min-h-screen bg-black text-white flex items-center justify-center px-4">
+    <div class="w-full max-w-2xl bg-gray-900 border border-gray-800 rounded-xl shadow-xl p-8 space-y-6">
+
+        <h1 class="text-3xl font-bold text-red-500 text-center mb-4">Confirmar Exclusão</h1>
+
+        <p class="text-lg text-center text-gray-300 mb-6">
+            Tem certeza que deseja excluir o gol abaixo?
+        </p>
+
+        <div class="grid grid-cols-1 gap-4 text-gray-300 text-lg">
+            <div>
+                <span class="font-semibold text-pink-300">Jogador:</span>
+                @Model.Jogador?.Nome ?? "Não informado"
+            </div>
+
+            <div>
+                <span class="font-semibold text-pink-300">Partida:</span>
+                @if (Model.Partida != null)
+                {
+                    @($"{Model.Partida.TimeCasa?.Nome} x {Model.Partida.TimeFora?.Nome} - {Model.Partida.DataHora:dd/MM/yyyy HH:mm}")
+                }
+                else
+                {
+                    @("Não informado")
+                }
+            </div>
+
+            <div>
+                <span class="font-semibold text-pink-300">Minuto do Gol:</span>
+                @Model.Minuto'
+            </div>
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="mt-8 flex justify-between">
+                <input type="submit" value="Excluir" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded transition duration-300" />
+                <a href="@Url.Action("Index")" class="text-gray-300 hover:text-pink-400 no-underline">← Cancelar</a>
+            </div>
+        }
+    </div>
+</div>

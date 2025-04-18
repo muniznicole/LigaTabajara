@@ -1,0 +1,46 @@
+﻿@model LigaTabajara.Models.Gol
+
+@{
+    ViewBag.Title = "Detalhes do Gol";
+}
+
+<div class="min-h-screen bg-black text-white flex items-center justify-center px-4">
+    <div class="w-full max-w-2xl bg-gray-900 border border-gray-800 rounded-xl shadow-xl p-8 space-y-6">
+
+        <h1 class="text-3xl font-bold text-pink-400 text-center mb-4">Detalhes do Gol</h1>
+
+        <div class="grid grid-cols-1 gap-6 text-gray-300 text-lg">
+            <div>
+                <span class="font-semibold text-pink-300">Jogador:</span>
+                @Model.Jogador?.Nome ?? "Não informado"
+            </div>
+
+            <div>
+                <span class="font-semibold text-pink-300">Partida:</span>
+                @if (Model.Partida != null)
+                {
+                    @($"{Model.Partida.TimeCasa?.Nome} x {Model.Partida.TimeFora?.Nome} - {Model.Partida.DataHora.ToString("dd/MM/yyyy HH:mm")}")
+                }
+                else
+                {
+                    @("Não informado")
+                }
+            </div>
+
+            <div>
+                <span class="font-semibold text-pink-300">Minuto do Gol:</span>
+                @Model.Minuto'
+            </div>
+        </div>
+
+        <div class="mt-8 flex justify-between">
+            <a href="@Url.Action("Edit", new { id = Model.GolId })" class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-6 rounded transition duration-300">
+                ✏️ Editar
+            </a>
+
+            <a href="@Url.Action("Index")" class="text-gray-300 hover:text-pink-400 no-underline">
+                ← Voltar à lista
+            </a>
+        </div>
+    </div>
+</div>

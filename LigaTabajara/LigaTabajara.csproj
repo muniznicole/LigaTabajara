@@ -128,8 +128,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ComissaoTecnicasController.cs" />
+    <Compile Include="Controllers\GolsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JogadorsController.cs" />
+    <Compile Include="Controllers\PartidasController.cs" />
     <Compile Include="Controllers\TimesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -146,10 +148,16 @@
     <Compile Include="Migrations\202504181701402_CRUDJogador.Designer.cs">
       <DependentUpon>202504181701402_CRUDJogador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202504181942399_AddPartidaEGol.cs" />
+    <Compile Include="Migrations\202504181942399_AddPartidaEGol.Designer.cs">
+      <DependentUpon>202504181942399_AddPartidaEGol.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ComissaoTecnica.cs" />
+    <Compile Include="Models\Gol.cs" />
     <Compile Include="Models\Jogador.cs" />
     <Compile Include="Models\LigaTabajaraContext.cs" />
+    <Compile Include="Models\Partida.cs" />
     <Compile Include="Models\Time.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -219,6 +227,16 @@
     <Content Include="Views\ComissaoTecnicas\Details.cshtml" />
     <Content Include="Views\ComissaoTecnicas\Edit.cshtml" />
     <Content Include="Views\ComissaoTecnicas\Index.cshtml" />
+    <Content Include="Views\Partidas\Create.cshtml" />
+    <Content Include="Views\Partidas\Delete.cshtml" />
+    <Content Include="Views\Partidas\Details.cshtml" />
+    <Content Include="Views\Partidas\Edit.cshtml" />
+    <Content Include="Views\Partidas\Index.cshtml" />
+    <Content Include="Views\Gols\Create.cshtml" />
+    <Content Include="Views\Gols\Delete.cshtml" />
+    <Content Include="Views\Gols\Details.cshtml" />
+    <Content Include="Views\Gols\Edit.cshtml" />
+    <Content Include="Views\Gols\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -259,6 +277,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202504181701402_CRUDJogador.resx">
       <DependentUpon>202504181701402_CRUDJogador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202504181942399_AddPartidaEGol.resx">
+      <DependentUpon>202504181942399_AddPartidaEGol.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

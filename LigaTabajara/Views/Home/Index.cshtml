@@ -1,23 +1,43 @@
-﻿@{
+﻿@model IEnumerable<LigaTabajara.Models.Time>
+
+@{
     ViewBag.Title = "Início";
 }
 
-<div class="min-h-screen bg-black text-white flex items-center justify-center px-4">
-    <div class="w-full max-w-3xl bg-gray-900 bg-opacity-80 backdrop-blur-sm border border-gray-800 rounded-xl shadow-2xl p-10">
-        <h1 class="text-4xl font-bold text-center text-pink-400 mb-6">Liga Tabajara de Futebol</h1>
+<div class="min-h-screen bg-black text-white px-4 py-10">
+    <div class="max-w-4xl mx-auto bg-gray-900 bg-opacity-90 backdrop-blur-sm border border-gray-800 rounded-xl shadow-2xl p-10">
 
-        <p class="text-lg text-center text-gray-300 leading-relaxed mb-8">
+        <h1 class="text-4xl font-bold text-center text-pink-400 mb-4">Liga Tabajara de Futebol</h1>
+
+        <p class="text-lg text-center text-gray-300 leading-relaxed mb-6">
             Bem-vindo ao sistema oficial da Liga Tabajara. Aqui você pode cadastrar times, jogadores, acompanhar estatísticas
             e conferir a tabela completa do campeonato!
         </p>
 
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <div class="text-center text-xl font-semibold mb-6 text-yellow-400">
+            Status da Liga: @ViewBag.LigaStatus
+        </div>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-10">
             <a href="/Times" class="no-underline bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-6 rounded-lg transition duration-300 text-center">
                 Ver Times
             </a>
             <a href="/Times/Create" class="no-underline bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded-lg transition duration-300 text-center">
                 Cadastrar Time
             </a>
+        </div>
+
+        <h2 class="text-2xl font-bold text-pink-300 mb-4 text-center">Times Cadastrados</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            @foreach (var time in Model)
+            {
+                <div class="bg-gray-800 border border-gray-700 p-4 rounded shadow text-center">
+                    <h3 class="text-pink-400 text-xl font-bold mb-2">@time.Nome</h3>
+                    <p class="text-gray-300">@time.Cidade - @time.Estado</p>
+                    <a href="/Times/Details/@time.TimeId" class="text-pink-400 hover:underline text-sm mt-2 inline-block">Ver Detalhes</a>
+                </div>
+            }
         </div>
     </div>
 </div>

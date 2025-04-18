@@ -1,0 +1,52 @@
+﻿@model LigaTabajara.Models.Gol
+
+@{
+    ViewBag.Title = "Registrar Gol";
+}
+
+<div class="min-h-screen bg-black text-white flex items-center justify-center px-4">
+    <div class="w-full max-w-3xl bg-gray-900 border border-gray-800 rounded-xl shadow-xl p-8 space-y-6">
+
+        <h1 class="text-3xl font-bold text-pink-400 text-center mb-4">Registrar Gol</h1>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.ValidationSummary(true, "", new { @class = "text-red-400 mb-4" })
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Partida -->
+                <div>
+                    @Html.LabelFor(m => m.PartidaId, "Partida", new { @class = "block text-sm font-medium text-pink-300" })
+                    @Html.DropDownList("PartidaId", null, "-- Selecione uma Partida --", new { @class = "mt-1 w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded text-white" })
+                    @Html.ValidationMessageFor(m => m.PartidaId, "", new { @class = "text-red-400 text-sm" })
+                </div>
+
+                <!-- Jogador -->
+                <div>
+                    @Html.LabelFor(m => m.JogadorId, "Jogador", new { @class = "block text-sm font-medium text-pink-300" })
+                    @Html.DropDownList("JogadorId", null, "-- Selecione o Jogador --", new { @class = "mt-1 w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded text-white" })
+                    @Html.ValidationMessageFor(m => m.JogadorId, "", new { @class = "text-red-400 text-sm" })
+                </div>
+
+                <!-- Minuto -->
+                <div>
+                    @Html.LabelFor(m => m.Minuto, "Minuto do Gol", new { @class = "block text-sm font-medium text-pink-300" })
+                    @Html.TextBoxFor(m => m.Minuto, new { type = "number", min = "0", max = "120", @class = "mt-1 w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded text-white" })
+                    @Html.ValidationMessageFor(m => m.Minuto, "", new { @class = "text-red-400 text-sm" })
+                </div>
+            </div>
+
+            <!-- Botões -->
+            <div class="mt-8 flex justify-between">
+                <a href="@Url.Action("Index")" class="text-gray-300 hover:text-pink-400 no-underline">← Voltar</a>
+                <input type="submit" value="Registrar Gol" class="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-6 rounded transition duration-300" />
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

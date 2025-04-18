@@ -1,0 +1,60 @@
+﻿@model IEnumerable<LigaTabajara.Models.Partida>
+
+@{
+    ViewBag.Title = "Partidas";
+}
+
+<h2 class="text-3xl font-bold text-pink-400 text-center mb-8">Lista de Partidas</h2>
+
+<div class="flex justify-end mb-4">
+    @Html.ActionLink("Agendar Nova Partida", "Create", null, new
+    {
+        @class = "no-underline bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-4 rounded-md transition duration-300"
+    })
+</div>
+
+<div class="overflow-x-auto">
+    <table class="min-w-full bg-gray-900 border border-gray-800 rounded-lg shadow">
+        <thead>
+            <tr class="bg-gray-800 text-pink-300 text-center">
+                <th class="py-3 px-4">Rodada</th>
+                <th class="py-3 px-4">Data e Hora</th>
+                <th class="py-3 px-4">Time da Casa</th>
+                <th class="py-3 px-4">Placar</th>
+                <th class="py-3 px-4">Time Visitante</th>
+                <th class="py-3 px-4">Estádio</th>
+                <th class="py-3 px-4">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var partida in Model)
+            {
+                <tr class="border-t border-gray-700 text-center hover:bg-gray-800">
+                    <td class="py-2 px-4">@partida.Rodada</td>
+                    <td class="py-2 px-4">@partida.DataHora.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td class="py-2 px-4">@partida.TimeCasa?.Nome ?? "—"</td>
+                    <td class="py-2 px-4">@partida.PlacarTimeCasa x @partida.PlacarTimeFora</td>
+                    <td class="py-2 px-4">@partida.TimeFora?.Nome ?? "—"</td>
+                    <td class="py-2 px-4">@partida.Estadio</td>
+                    <td class="py-2 px-4 flex justify-center gap-3">
+                        @Html.ActionLink("✏️", "Edit", new { id = partida.PartidaId }, new
+                        {
+                            @class = "no-underline text-yellow-300 hover:text-yellow-400 text-lg",
+                            title = "Editar"
+                        })
+                        @Html.ActionLink("👀", "Details", new { id = partida.PartidaId }, new
+                        {
+                            @class = "no-underline text-blue-300 hover:text-blue-400 text-lg",
+                            title = "Detalhes"
+                        })
+                        @Html.ActionLink("❌", "Delete", new { id = partida.PartidaId }, new
+                        {
+                            @class = "no-underline text-red-400 hover:text-red-500 text-lg",
+                            title = "Excluir"
+                        })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

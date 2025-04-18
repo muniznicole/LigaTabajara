@@ -14,5 +14,8 @@ namespace LigaTabajara.Models
         public DbSet<Time> Times { get; set; }
         public DbSet<Jogador> Jogadores { get; set; }
         public DbSet<ComissaoTecnica> ComissoesTecnicas { get; set; }
+        public DbSet<Partida> Partidas { get; set; }
+        public DbSet<Gol> Gols { get; set; }
+
     }
 }
