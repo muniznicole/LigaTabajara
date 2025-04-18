@@ -1,4 +1,4 @@
-﻿@model IEnumerable<LigaTabajara.Models.Time>
+﻿﻿@model IEnumerable<LigaTabajara.Models.Time>
 
 @{
     ViewBag.Title = "Início";
@@ -32,11 +32,29 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             @foreach (var time in Model)
             {
-                <div class="bg-gray-800 border border-gray-700 p-4 rounded shadow text-center">
+                <div class="bg-gray-800 border border-gray-700 p-4 rounded shadow text-left">
                     <h3 class="text-pink-400 text-xl font-bold mb-2">@time.Nome</h3>
                     <p class="text-gray-300">@time.Cidade - @time.Estado</p>
-                    <a href="/Times/Details/@time.TimeId" class="text-pink-400 hover:underline text-sm mt-2 inline-block">Ver Detalhes</a>
+
+                    <p class="text-sm text-pink-200 font-semibold mt-3">Comissão Técnica:</p>
+                    <ul class="text-gray-300 text-sm list-disc ml-6">
+                        @foreach (var membro in time.ComissaoTecnica)
+                        {
+                            <li>@membro.Cargo - @membro.Nome</li>
+                        }
+                    </ul>
+
+                    <p class="text-sm text-pink-200 font-semibold mt-3">Jogadores:</p>
+                    <ul class="text-gray-300 text-sm list-disc ml-6 max-h-40 overflow-y-auto">
+                        @foreach (var jogador in time.Jogadores)
+                        {
+                            <li>#@jogador.NumeroCamisa - @jogador.Nome (@jogador.Posicao)</li>
+                        }
+                    </ul>
+
+                    <a href="/Times/Details/@time.TimeId" class="text-pink-400 hover:underline text-sm mt-4 inline-block">Ver Detalhes</a>
                 </div>
+
             }
         </div>
     </div>
