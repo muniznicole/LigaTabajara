@@ -17,21 +17,7 @@ namespace LigaTabajara.Controllers
         // GET: Jogadors
         public ActionResult Index()
         {
-            var jogadores = db.Jogadores
-                .Include(j => j.Time)
-                .Select(j => new Jogador
-                {
-                    JogadorId = j.JogadorId,
-                    Nome = j.Nome,
-                    Posicao = j.Posicao,
-                    NumeroCamisa = j.NumeroCamisa,
-                    PePreferido = j.PePreferido,
-                    Time = new Time
-                    {
-                        Nome = j.Time.Nome
-                    }
-                }).ToList();
-
+            var jogadores = db.Jogadores.Include(j => j.Time).ToList();
             return View(jogadores);
         }
 
