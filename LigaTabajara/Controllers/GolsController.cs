@@ -17,8 +17,14 @@ namespace LigaTabajara.Controllers
         // GET: Gols
         public ActionResult Index()
         {
-            var gols = db.Gols.Include(g => g.Jogador).Include(g => g.Partida);
-            return View(gols.ToList());
+            var gols = db.Gols
+                 .Include(g => g.Jogador)
+                 .Include(g => g.Jogador.Time)
+                 .Include(g => g.Partida)
+                 .Include(g => g.Partida.TimeCasa)
+                 .Include(g => g.Partida.TimeFora)
+                 .ToList();
+            return View(gols);
         }
 
         // GET: Gols/Details/5

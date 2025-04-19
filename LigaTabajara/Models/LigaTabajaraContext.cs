@@ -10,6 +10,8 @@ namespace LigaTabajara.Models
 	{
         public LigaTabajaraContext() : base("LigaTabajaraContext")
         {
+            this.Configuration.ProxyCreationEnabled = false;
+            this.Configuration.LazyLoadingEnabled = false;
         }
         public DbSet<Time> Times { get; set; }
         public DbSet<Jogador> Jogadores { get; set; }
