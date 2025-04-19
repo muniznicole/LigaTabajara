@@ -1,4 +1,4 @@
--- TIMES
+﻿-- TIMES
 
 INSERT INTO Times (Nome, Cidade, Estado, AnoFundacao, Estadio, CapacidadeEstadio, CorUniformePrimaria, CorUniformeSecundaria, Status)
 VALUES
@@ -736,6 +736,3 @@ INSERT INTO ComissaoTecnicas (ComissaoTecnicaId, Nome, Cargo, DataNascimento, Ti
 INSERT INTO ComissaoTecnicas (ComissaoTecnicaId, Nome, Cargo, DataNascimento, TimeId) VALUES (100, 'Juliana Porto', 5, '19670818', 20);
 
 SET IDENTITY_INSERT ComissaoTecnicas OFF;
-
-
-
